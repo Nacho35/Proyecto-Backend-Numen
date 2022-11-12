@@ -3,10 +3,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
   email: {
     type: String,
     unique: true,
@@ -20,6 +16,10 @@ const userSchema = new Schema({
   registerDate: {
     type: Date,
     default: Date.now(),
+  },
+  seriesFav: {
+    type: Schema.Types.ObjectId,
+    ref: "Serie",
   },
 });
 userSchema.pre("save", function (next) {

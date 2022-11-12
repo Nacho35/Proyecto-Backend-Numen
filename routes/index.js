@@ -1,12 +1,15 @@
 const express = require("express");
+const api = express.Router();
+
 const { userController } = require("..//controllers");
-const routes = express.Router();
+const { isAuth } = require("..//middlewares");
+const { userSchema } = require("..//controllers/schemas");
 
-const { userController } = require("../controllers");
-const { isAuth } = require("../middlewares");
-const { userSchema } = require("../controllers/schemas");
+api.post("/login", userSchema, userController.login);
+api.post("/register", userController.register);
 
-routes.post("/login", userSchema, userController.login);
-routes.post("/register", userController.register);
+api.get("/hi", isAuth, userController.hello);
 
-module.exports = routes;
+module.exports = api;
+
+// falla en el ruteo verificar el server para ver el error

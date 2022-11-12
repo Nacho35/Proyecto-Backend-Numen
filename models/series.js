@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const seriesSchema = new Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
   title: {
     type: String,
     unique: true,
@@ -26,6 +22,10 @@ const seriesSchema = new Schema({
   category: {
     type: String,
     required: true,
+  },
+  chapterSerie: {
+    type: Schema.Types.ObjectId,
+    ref: "Serie",
   },
 });
 
