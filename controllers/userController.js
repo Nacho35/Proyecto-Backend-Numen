@@ -1,5 +1,5 @@
-const User = require("..//models/users");
-const { authService, userService } = require("..//services");
+const { userService } = require("../services");
+const User = require("../models/users");
 const { validationResult } = require("express-validator");
 
 const login = async (req, res) => {
@@ -18,7 +18,7 @@ const login = async (req, res) => {
   return res.status(result.status).send(result);
 };
 
-const register = (req, res) => {
+const register = async (req, res) => {
   const { email, password } = req.body;
 
   const newUser = new User({
@@ -26,35 +26,21 @@ const register = (req, res) => {
     password,
   });
 
-  User.findOne({ email: newUser.email }, (error, user) => {
-    if (error) {
-      return res.status(500).send({
-        message: "Se produjo un error al registrar el usuario.",
-        error,
-      });
-    }
-    if (user) {
-      return res
-        .status(400)
-        .send({ message: "El email ya se encuentra en uso." });
-    }
-    newUser.save((error) => {
-      if (error) {
-        res.status(400).send({
-          message: "Se produjo un error al registrar el usuario.",
-          error,
-        });
-      }
-      res.status(201).send({
-        message: "El registro se completo exitosamente",
-        token: authService.createToken(),
-      });
-    });
-  });
+  const resultValidation = validationResult(req);
+  const hasErrors = !resultValidation.isEmpty();
+
+  if (hasErrors) {
+    return res.status(400).send(resultValidation);
+  }
+
+  const result = await userService
+    .register(email, password, newUser.email)
+    .catch((error) => error);
+  return res.status(result.status).send(result);
 };
 
 const Hello = (req, res) => {
-  res.status(200).send("Hola mundo, estas autenticado!");
+  return res.status(200).send("Hola mundo, estas autenticado!");
 };
 
 module.exports = {

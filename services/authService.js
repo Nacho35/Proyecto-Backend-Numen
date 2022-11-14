@@ -6,7 +6,7 @@ const createToken = () => {
     iat: DateTime.now().toMillis(),
     exp: DateTime.now().plus({ minutes: 30 }),
   };
-  jwt.encode(payload, process.env.JWT_SECRET);
+  return jwt.encode(payload, process.env.JWT_SECRET);
 };
 
 const decodeToken = (token) => {
