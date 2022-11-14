@@ -53,12 +53,12 @@ const register = (req, res) => {
   });
 };
 
-const sayHi = (req, res) => {
+const Hello = (req, res) => {
   res.status(200).send("Hola mundo, estas autenticado!");
 };
 
 module.exports = {
   login,
   register,
-  sayHi,
+  Hello,
 };
