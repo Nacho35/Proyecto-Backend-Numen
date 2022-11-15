@@ -28,13 +28,16 @@ const postSerie = (req, res) => {
 
 const putSerie = (req, res) => {
     console.log('Se actualizó una serie')
-    const updateSerie = series.find((series) => series.id === parseInt(req.params.id))
+    let dataSerie = req.body
+    let updateSerie = series.find((series) => series.id === parseInt(req.params.id));
     if (!updateSerie) {
         return res
             .status(404)
             .send(`No se ha encontrado la serie a actualizar`)
-    } 
-
+    } series = series.map((series) => series.id === parseInt(req.params.id)
+    ? {...series, ...dataSerie}
+    : series
+    );
     res
     .status(201)
     .send(`La serie se ha actualizado correctamente`)
@@ -42,6 +45,15 @@ const putSerie = (req, res) => {
 
 const deleteSerie = (req, res) => {
     console.log('Se eliminó una serie')
+    let serieDelete = series.find((series) => series.id === parseInt(req.params.id));
+    if (!serieDelete) {
+        return res
+        .status(404)
+        .send('No se encontró la serie a eliminar')
+    }  series = series.filter((series) => series.id !== parseInt(req.params.id));
+    res
+    .status(201)
+    .send('La serie ha sido eliminada')
 }
 
 module.exports = {

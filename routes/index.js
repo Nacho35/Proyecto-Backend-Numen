@@ -1,14 +1,20 @@
 const express = require("express");
-const routes = express.Router();
+const api = express.Router();
 
-const { animeController } = require("../controllers");
-// const { isAuth } = require("../middlewares");
-// const { userSchema } = require("../controllers/schemas");
+const { userController, animeController} = require("../controllers");
+const { isAuth } = require("../middlewares");
+const { userSchema } = require("../controllers/schemas");
 
-routes.get('/series', animeController.getSerie);
-routes.get('/series/:id', animeController.getSerie1);
-routes.post('/series', animeController.postSerie);
-routes.put('/series', animeController.putSerie);
-routes.delete('/series', animeController.deleteSerie);
+api.post("/login", userSchema, userController.login);
+api.post("/register", userController.register);
 
-module.exports = routes
+api.get("/hi", isAuth, userController.Hello);
+
+///CRUD SERIES
+api.get('/series', animeController.getSerie);
+api.get('/series/:id', animeController.getSerie1);
+api.post('/series', animeController.postSerie);
+api.put('/series', animeController.putSerie);
+api.delete('/series', animeController.deleteSerie);
+
+module.exports = api
