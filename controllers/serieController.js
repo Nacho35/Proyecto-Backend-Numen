@@ -1,3 +1,4 @@
+const series = require('../models/series');
 const { serieService } = require('../services');
 
 const createSerie = async (req, res) => {
@@ -17,11 +18,33 @@ const getSerie = async (req, res) => {
         
         res.status(result.status).send(result);
     }catch(error){
-        res.status(500).send("Se produjo un error al listar los productos.");
+        res.status(500).send("Se produjo un error al listar las series.");
     }
+}
+
+const putSerie = async (req, res) => {
+    try{
+        
+       await series.updateOne({_id: req.params.id}, {$set: {...req.body}})
+        res.status(201).send("Actualizado!")
+    }catch(error){
+        res.status(500).send("Se produjo un error al modificar la serie.");
+    }
+}
+
+const deleteSerie = async (req, res) => {
+    try{
+        
+        await series.findByIdAndDelete(req.params.id)
+         res.status(201).send("Borrado!")
+     }catch(error){
+         res.status(500).send("Se produjo un error al borrar la serie.");
+     }
 }
 
 module.exports = {
     createSerie,
     getSerie,
+    putSerie,
+    deleteSerie
 }

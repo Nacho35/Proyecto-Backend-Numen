@@ -36,6 +36,30 @@ const getSerie = async (category) => {
     return result;
 }
 
+/*
+    FALTA LA LÓGICA EN METODO PUT (Update) Y EN DELETE
+*/
+
+const updateSerie = async (id) => {
+    let result;
+    try{
+        
+    }catch(error){
+        throw error;
+    }
+    return result;
+}
+
+const deleteSerie = async (id) => {
+    let result;
+    try{
+        
+    }catch(error){
+        throw error;
+    }
+    return result;
+}
+
 module.exports = {
     createSerie,
     getSerie,

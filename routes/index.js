@@ -9,6 +9,8 @@ api.post("/login", userSchema, userController.login);
 api.post("/register", userController.register);
 api.post('/serie', serieController.createSerie);
 api.get('/serie', serieController.getSerie);
+api.put('/serie:id', serieController.putSerie)
+api.delete('/serie:id', serieController.deleteSerie)
 
 api.get("/hi", isAuth, userController.Hello);
 
