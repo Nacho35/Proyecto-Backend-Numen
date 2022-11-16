@@ -1,3 +1,35 @@
+let series = [
+    { "id" : 1,
+         "title" : "peli 1",
+         "description" : "lorem",
+         "url" : "hjmgh1",
+         "category" : "comedia",
+         "chapterSerie" : "1"
+    },
+    { "id" : 2,
+         "title" : "peli 2",
+         "description" : "ipsum",
+         "url" : "fgsdfg2",
+         "category" : "drama",
+         "chapterSerie" : "2"
+    },
+    { "id" : 3,
+         "title" : "peli 3",
+         "description" : "otro",
+         "url" : "sgsd3",
+         "category" : "terror",
+         "chapterSerie" : "3"
+    },
+    { "id" : 4,
+         "title" : "peli 4",
+         "description" : "ulti",
+         "url" : "dfgdf4",
+         "category" : "suspenso",
+         "chapterSerie" : "4"
+    }
+  ]
+
+
 const getSerie = (req, res) => {
     console.log('Se obtuvo el listado de series')
     res

@@ -1,7 +1,7 @@
 const userController = require("./userController");
-const animeController = require('./animeController');
+const seriesController = require('./seriesController');
 
 module.exports = {
-    animeController,
+    seriesController,
     userController,
 }
