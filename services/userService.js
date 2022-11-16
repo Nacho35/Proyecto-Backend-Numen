@@ -1,10 +1,10 @@
 const authService = require("./authService");
 const User = require("../models/users");
-const newUser = require("../controllers/userController");
 
+// ERROR EN LOGIN REVISAR LA PROMESA FALLA EN STATUS 401
 const login = (email, password) => {
   return new Promise((resolve, reject) => {
-    User.findOne({ email }, (error, user) => {
+    User.findOne({ email, password }, (error, user) => {
       if (error) {
         reject({
           status: 500,
@@ -28,8 +28,12 @@ const login = (email, password) => {
   });
 };
 
-const register = () => {
+const register = (email, password) => {
   return new Promise((resolve, reject) => {
+    const newUser = new User({
+      email,
+      password,
+    });
     User.findOne({ email: newUser.email }, (error, user) => {
       if (error) {
         reject({
@@ -66,5 +70,3 @@ module.exports = {
   login,
   register,
 };
-
-// PROBLEMA EN EL  newUser.save SERVER DICE IS NOT A FUNCTION
