@@ -23,9 +23,9 @@ const seriesSchema = new Schema({
     type: String,
     required: true,
   },
-  chapterSerie: {
+  chapter: {
     type: Schema.Types.ObjectId,
-    ref: "Serie",
+    ref: "serie",
   },
 });
 
