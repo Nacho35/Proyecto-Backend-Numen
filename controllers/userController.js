@@ -21,11 +21,6 @@ const login = async (req, res) => {
 const register = async (req, res) => {
   const { email, password } = req.body;
 
-  const newUser = new User({
-    email,
-    password,
-  });
-
   const resultValidation = validationResult(req);
   const hasErrors = !resultValidation.isEmpty();
 
@@ -34,7 +29,7 @@ const register = async (req, res) => {
   }
 
   const result = await userService
-    .register(email, password, newUser.email)
+    .register(email, password)
     .catch((error) => error);
   return res.status(result.status).send(result);
 };
