@@ -1,5 +1,4 @@
 const { userService } = require("../services");
-const User = require("../models/users");
 const { validationResult } = require("express-validator");
 
 const login = async (req, res) => {

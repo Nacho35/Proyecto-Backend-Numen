@@ -4,7 +4,7 @@ const User = require("../models/users");
 // ERROR EN LOGIN REVISAR LA PROMESA FALLA EN STATUS 401
 const login = (email, password) => {
   return new Promise((resolve, reject) => {
-    User.findOne({ email, password }, (error, user) => {
+    User.findOne({ email }, (error, user) => {
       if (error) {
         reject({
           status: 500,
