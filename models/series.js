@@ -22,10 +22,8 @@ const seriesSchema = new Schema({
     type: String,
     required: true,
   },
-
-  /* FALTA SOLUCIONAR COMO PASAR METODO CHAPTER VIA POSTMAN (Devuelve error al pasarle el atributo "chapter") */
   chapter: {
-    type: Schema.Types.ObjectId,
+    type: Array,
     ref: "serie",
   },
 });

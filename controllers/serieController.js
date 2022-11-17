@@ -8,6 +8,7 @@ const createSerie = async (req, res) => {
         res.status(result.status).send(result);
     }catch(error){
         res.status(500).send("Se produjo un error al crear el producto.");
+        
     }
 }
 
