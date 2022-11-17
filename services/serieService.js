@@ -63,4 +63,6 @@ const deleteSerie = async (id) => {
 module.exports = {
     createSerie,
     getSerie,
+    updateSerie,
+    deleteSerie,
 };

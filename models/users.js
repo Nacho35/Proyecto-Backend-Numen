@@ -38,4 +38,9 @@ userSchema.pre("save", function (next) {
   });
 });
 
-module.exports = mongoose.model("Users", userSchema);
+userSchema.methods.comparePassword = function(password) {
+  let user = this;
+  return bcrypt.compareSync(password, user.password);
+}
+
+module.exports = mongoose.model("user", userSchema);
