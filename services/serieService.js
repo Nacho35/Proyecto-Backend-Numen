@@ -1,3 +1,4 @@
+const series = require("../models/series");
 const Serie = require("../models/series");
 
 const createSerie = async (title, description, url, category, chapter) => {
@@ -42,11 +43,21 @@ const getSerie = async (category) => {
 const updateSerie = async (id) => {
   let result;
   try {
-    await Serie.findByIdAndUpdate(id, {
-      title,
-      description,
-    });
-    redirect("/series");
+    const series = await Serie.updateOne(
+      { _id: id },
+      {
+        $set: {
+          title: series.title,
+          description: series.description,
+          url: series.url,
+          category: series.category,
+        },
+      }
+    );
+    result = {
+      status: 200,
+      message: "la Serie fue actualizada correctamente",
+    };
   } catch (error) {
     throw error;
   }
@@ -56,7 +67,12 @@ const updateSerie = async (id) => {
 const deleteSerie = async (id) => {
   let result;
   try {
-    await Serie.findByIdAndDelete(id);
+    const series = await Serie.updateOne({ _id: id });
+    result = {
+      status: 200,
+      message: "la Serie fue eliminada correctamente",
+      series,
+    };
   } catch (error) {
     throw error;
   }
