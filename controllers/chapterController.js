@@ -3,13 +3,11 @@ const { chapterService } = require("../services");
 
 const createChapter = async (req, res) => {
   try {
-    const { title, description, url, category, chapter } = req.body;
+    const { id, title, description, url} = req.body;
     const result = await chapterService.createChapter(
       title,
       description,
       url,
-      category,
-      chapter
     );
     res.status(result.status).send(result);
   } catch (error) {
