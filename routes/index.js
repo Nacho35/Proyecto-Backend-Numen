@@ -9,8 +9,6 @@ const {
 const { isAuth } = require("../middlewares");
 const { userSchema } = require("../controllers/schemas");
 
-//! VERIFICAR PORQUE FALLA EN ROUTES DESDE chapterController //
-
 api.post("/login", userSchema, userController.login);
 api.post("/register", userController.register);
 api.post("/serie", serieController.createSerie);

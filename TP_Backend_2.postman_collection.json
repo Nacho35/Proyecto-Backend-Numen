@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "823afaae-b69a-4293-b63c-ceff9c6c9f6f",
+		"name": "TP_Backend_2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23821928"
+	},
+	"item": [
+		{
+			"name": "HI",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjcyNjEwODUxODcsImV4cCI6IjIwMjItMTEtMTRUMjE6MDQ6NDUuMTg3LTAzOjAwIn0.6Ms_AcHkEZ_-mAAY9VuqCY-s34L1vgG5PAxdeSvCJak",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3002/api/hi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"hi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"email\":\"usuario1@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjkwNzQ2MDYyNDIsImV4cCI6MTY3MDI4NDIwNjI0Mn0.h8XW8LXRVMBKnzsXgC37msIybPqSfJ5tP0B2RVpn78w",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"email\":\"usuario1@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET serie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/serie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"serie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST serie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{        \r\n    \"title\" : \"Serie 4\",\r\n    \"description\" : \"Serie 4\",\r\n    \"url\" : \"www.serie4.com\",\r\n    \"category\" : \"acción\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/serie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"serie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT serie",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{        \r\n    \"title\" : \"Serie 1\",\r\n    \"description\" : \"Serie 1\",\r\n    \"url\" : \"www.serie1.com\",\r\n    \"category\" : \"comedia\",\r\n    \"chapter\" : \"12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/serie/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"serie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE serie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/serie/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"serie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET 1 serie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/serie/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"serie",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET chapter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3002/api/chapter?userId=637d439d9ba2228bf80f8a2c",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"chapter"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "637d439d9ba2228bf80f8a2c"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST chapter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{        \r\n    \"title\" : \"Capitulo 1\",\r\n    \"description\" : \"descripcion del capitulo 1\",\r\n    \"url\" : \"www.capitulo1.com\",\r\n    \"serieId\" : \"637d24d60450697274853274\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/chapter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"chapter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT chapter",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{        \r\n    \"title\" : \"serie 4\",\r\n    \"description\" : \"serie 4\",\r\n    \"url\" : \"www.serie4modificada.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/chapter/637d439d9ba2228bf80f8a2c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"chapter",
+						"637d439d9ba2228bf80f8a2c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE chapter",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/chapter/637d439d9ba2228bf80f8a2c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"chapter",
+						"637d439d9ba2228bf80f8a2c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
