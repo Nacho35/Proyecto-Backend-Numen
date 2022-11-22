@@ -13,7 +13,7 @@ const createSerie = async (req, res) => {
     );
     res.status(result.status).send(result);
   } catch (error) {
-    res.status(500).send("Se produjo un error al crear el producto.");
+    res.status(500).send("Se produjo un error al crear la serie.");
   }
 };
 
@@ -31,7 +31,7 @@ const getSerie = async (req, res) => {
 const updateSerie = async (req, res) => {
   try {
     await series.updateOne({ _id: req.params.id }, { $set: { ...req.body } });
-    res.status(201).send("Actualizado!");
+    res.status(201).send("Serie actualizada exitosamente!");
   } catch (error) {
     res.status(500).send("Se produjo un error al modificar la serie.");
   }
@@ -40,7 +40,7 @@ const updateSerie = async (req, res) => {
 const deleteSerie = async (req, res) => {
   try {
     await series.findByIdAndDelete(req.params.id);
-    res.status(201).send("Borrado!");
+    res.status(201).send("Serie eliminada exitossamnete!");
   } catch (error) {
     res.status(500).send("Se produjo un error al borrar la serie.");
   }
