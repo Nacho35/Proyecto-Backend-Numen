@@ -7,7 +7,6 @@ const createSerie = async (title, description, url, category, chapter) => {
     await newSerie.save();
     result = {
       status: 201,
-      message: "La Serie fue creada correctamente",
       newSerie,
     };
   } catch (error) {
@@ -35,10 +34,6 @@ const getSerie = async (category) => {
   return result;
 };
 
-/*
-    FALTA LA LÓGICA EN METODO PUT (Update) Y EN DELETE
-*/
-
 const updateSerie = async (id) => {
   let result;
   const { title, description, url, category, chapter } = Serie;
@@ -56,6 +51,7 @@ const updateSerie = async (id) => {
       }
     );
     result = {
+      status: 201,
       series,
     };
   } catch (error) {
@@ -69,6 +65,7 @@ const deleteSerie = async (id) => {
   try {
     const series = await Serie.findByIdAndDelete({ _id: id });
     result = {
+      status: 201,
       series,
     };
   } catch (error) {
