@@ -40,7 +40,7 @@ const updateSerie = async (req, res) => {
 const deleteSerie = async (req, res) => {
   try {
     await series.findByIdAndDelete(req.params.id);
-    res.status(201).send("Serie eliminada exitossamnete!");
+    res.status(201).send("Serie eliminada exitosamente!");
   } catch (error) {
     res.status(500).send("Se produjo un error al borrar la serie.");
   }
