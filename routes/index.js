@@ -17,7 +17,7 @@ api.get("/serie/:id", serieController.getSerieById);
 api.put("/serie/:id", serieController.updateSerie);
 api.delete("/serie/:id", serieController.deleteSerie);
 api.post("/chapter", chapterController.createChapter);
-api.get("/chapter", chapterController.getChapter);
+api.get("/chapter/:id", chapterController.getChapter);
 api.put("/chapter/:id", chapterController.updateChapter);
 api.delete("/chapter/:id", chapterController.deleteChapter);
 

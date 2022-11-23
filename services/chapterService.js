@@ -1,3 +1,4 @@
+const chapters = require("../models/chapters");
 const Chapter = require("../models/chapters");
 const Serie = require('../models/series')
 
@@ -19,13 +20,13 @@ const createChapter = async (title, description, url, serieId) => {
   return { status: 200, message: "El capitulo fue creado exitosamente", newChapter };
 }
 
-const getChapter = async (serieId) => {
+const getChapter = async (id) => {
   let result;
   try {
-    const chapters = await Chapter.find({serieId});  ///CHEQUEAR PORQUE DEVUELVE TODOS LOS CAPITULOS EN VEZ DE LOS DE UN ID ESPECIFICO
+    const series = await Serie.findById({ _id: id }),
     result = {
-      status: 200,
-      chapters,
+      status: 201,
+      series,
     };
   } catch (error) {
     throw error;
