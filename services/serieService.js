@@ -7,6 +7,7 @@ const createSerie = async (title, description, url, category, chapter) => {
     await newSerie.save();
     result = {
       status: 201,
+      message: "La serie fue creada exitosamente",
       newSerie,
     };
   } catch (error) {

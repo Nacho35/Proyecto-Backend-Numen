@@ -123,7 +123,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{        \r\n    \"title\" : \"Serie 4\",\r\n    \"description\" : \"Serie 4\",\r\n    \"url\" : \"www.serie4.com\",\r\n    \"category\" : \"acción\"\r\n}",
+					"raw": "{        \r\n    \"title\" : \"Serie 2\",\r\n    \"description\" : \"Serie 2\",\r\n    \"url\" : \"www.serie2.com\",\r\n    \"category\" : \"comedia\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -223,7 +223,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3002/api/chapter?userId=637d439d9ba2228bf80f8a2c",
+					"raw": "localhost:3002/api/chapter?userId=637e295951124cd8833b4897",
 					"host": [
 						"localhost"
 					],
@@ -235,7 +235,7 @@
 					"query": [
 						{
 							"key": "userId",
-							"value": "637d439d9ba2228bf80f8a2c"
+							"value": "637e295951124cd8833b4897"
 						}
 					]
 				}
@@ -249,7 +249,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{        \r\n    \"title\" : \"Capitulo 1\",\r\n    \"description\" : \"descripcion del capitulo 1\",\r\n    \"url\" : \"www.capitulo1.com\",\r\n    \"serieId\" : \"637d24d60450697274853274\"\r\n}",
+					"raw": "{        \r\n    \"title\" : \"Capitulo 2\",\r\n    \"description\" : \"descripcion del capitulo 2\",\r\n    \"url\" : \"www.capitulo2.com\",\r\n    \"serieId\" : \"637e295951124cd8833b4897\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -278,7 +278,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{        \r\n    \"title\" : \"serie 4\",\r\n    \"description\" : \"serie 4\",\r\n    \"url\" : \"www.serie4modificada.com\"\r\n}",
+					"raw": "{        \r\n    \"title\" : \"Capitulo 1\",\r\n    \"description\" : \"descripcion del capitulo 1\",\r\n    \"url\" : \"www.capitulo1modificado.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -286,7 +286,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3002/api/chapter/637d439d9ba2228bf80f8a2c",
+					"raw": "http://localhost:3002/api/chapter/637e2db53b9cff9e2ebe1c23",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -295,7 +295,7 @@
 					"path": [
 						"api",
 						"chapter",
-						"637d439d9ba2228bf80f8a2c"
+						"637e2db53b9cff9e2ebe1c23"
 					]
 				}
 			},
@@ -307,7 +307,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3002/api/chapter/637d439d9ba2228bf80f8a2c",
+					"raw": "http://localhost:3002/api/chapter/637e2fd0040d91d2ec0a8733",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -316,7 +316,7 @@
 					"path": [
 						"api",
 						"chapter",
-						"637d439d9ba2228bf80f8a2c"
+						"637e2fd0040d91d2ec0a8733"
 					]
 				}
 			},

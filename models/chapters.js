@@ -2,26 +2,22 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const chaptersSchema = new Schema({
-  id: {
-    type: Number,
-    unique: true,
-  },
-  title: {
+    title: {
     type: String,
-    unique: true,
     required: true,
-    lowercase: true,
   },
   description: {
     type: String,
-    unique: true,
     required: true,
-    lowercase: true,
   },
   url: {
     type: String,
     required: true,
   },
+  serieOwner: {
+    type: Schema.Types.ObjectId,
+    ref: "Series"
+  }
 });
 
 module.exports = mongoose.model("Chapters", chaptersSchema);

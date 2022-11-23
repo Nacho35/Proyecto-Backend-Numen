@@ -2,60 +2,30 @@ const Chapter = require("../models/chapters");
 const Serie = require('../models/series')
 
 const createChapter = async (title, description, url, serieId) => {
-  let result;
+  let newChapter;
   try {
-      const serieFound = await Serie.findById(userId);
-      if(!serieFound) {
-          return {status: 400, message: 'La serie no existe en la bd'}
-      }
-      const newChapter = new Chapter ({ title, description, url, serieOwner: serieId})
-      await newChapter.save();
-      serieFound.chapter.push(newChapter._id);
-      await serieFound.save();
-      result = {
-          status: 201,
-          message: 'El capitulo fue agregado correctamente',
-          newChapter,
-      }
+    const serieFound = await Serie.findById(serieId);
+    if(!serieFound){
+      return { status: 404, message: "La serie no existe en la bd" }
+    }
+    newChapter = new Chapter({title, description, url, serieOwner: serieId});
+    await newChapter.save();
+    serieFound.chapters.push(newChapter._id);
+    await serieFound.save();
   } catch (error) {
-      throw error;
+    console.log(error);
+    throw error;
   }
-  return result;
+  return { status: 200, message: "El capitulo fue creado exitosamente", newChapter };
 }
 
-// const createChapter = async (title, description, url, category, chapter) => {
-//   let result;
-//   try {
-//     const newChapter = new Chapter({
-//       title,
-//       description,
-//       url,
-//       category,
-//       chapter,
-//     });
-//     await newChapter.save();
-//     result = {
-//       status: 201,
-//       newChapter,
-//     };
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-//   return result;
-// };
-
-const getChapter = async (category) => {
+const getChapter = async (serieId) => {
   let result;
-  let criteria = {};
   try {
-    if (category) {
-      criteria.category = category;
-    }
-    const chapter = await Chapter.find(criteria);
+    const chapters = await Chapter.find({serieId});  ///CHEQUEAR PORQUE DEVUELVE TODOS LOS CAPITULOS EN VEZ DE LOS DE UN ID ESPECIFICO
     result = {
       status: 200,
-      chapter,
+      chapters,
     };
   } catch (error) {
     throw error;
@@ -65,7 +35,7 @@ const getChapter = async (category) => {
 
 const updateChapter = async (id) => {
   let result;
-  const { title, description, url, category } = Serie;
+  const { title, description, url } = Chapter;
   try {
     const chapter = await Chapter.findByIdAndUpdate(
       { _id: id },
@@ -74,7 +44,6 @@ const updateChapter = async (id) => {
           title,
           description,
           url,
-          category,
         },
       }
     );

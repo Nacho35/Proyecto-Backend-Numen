@@ -3,13 +3,13 @@ const { serieService } = require("../services");
 
 const createSerie = async (req, res) => {
   try {
-    const { title, description, url, category, chapter } = req.body;
+    const { title, description, url, category, chapters } = req.body;
     const result = await serieService.createSerie(
       title,
       description,
       url,
       category,
-      chapter
+      chapters
     );
     res.status(result.status).send(result);
   } catch (error) {

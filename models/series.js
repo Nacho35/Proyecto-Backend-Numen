@@ -4,13 +4,11 @@ const Schema = mongoose.Schema;
 const seriesSchema = new Schema({
   title: {
     type: String,
-    unique: true,
     required: true,
     lowercase: true,
   },
   description: {
     type: String,
-    unique: true,
     required: true,
     lowercase: true,
   },
@@ -22,10 +20,10 @@ const seriesSchema = new Schema({
     type: String,
     required: true,
   },
-  chapter: {
-    type: Array,
-    ref: "serie",
-  },
+  chapters: [{
+    type: Schema.Types.ObjectId,
+    ref: "Chapters"
+  }],
 });
 
 module.exports = mongoose.model("Series", seriesSchema);
