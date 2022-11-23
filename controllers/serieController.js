@@ -28,6 +28,16 @@ const getSerie = async (req, res) => {
   }
 };
 
+const getSerieById = async (req, res) => {
+  try {
+    const result =
+    await series.findById(req.params.id);
+    res.status(201).send(result);
+  } catch (error) {
+    res.status(500).send("Se produjo un error al buscar la serie.");
+  }
+};
+
 const updateSerie = async (req, res) => {
   try {
     await series.updateOne({ _id: req.params.id }, { $set: { ...req.body } });
@@ -51,4 +61,5 @@ module.exports = {
   getSerie,
   updateSerie,
   deleteSerie,
+  getSerieById,
 };

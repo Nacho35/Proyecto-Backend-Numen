@@ -13,6 +13,7 @@ api.post("/login", userSchema, userController.login);
 api.post("/register", userController.register);
 api.post("/serie", serieController.createSerie);
 api.get("/serie", serieController.getSerie);
+api.get("/serie/:id", serieController.getSerieById);
 api.put("/serie/:id", serieController.updateSerie);
 api.delete("/serie/:id", serieController.deleteSerie);
 api.post("/chapter", chapterController.createChapter);

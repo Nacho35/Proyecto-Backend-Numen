@@ -35,6 +35,20 @@ const getSerie = async (category) => {
   return result;
 };
 
+const getSerieById = async (id) => {
+  let result;
+  try {
+    const series = await Serie.findById({ _id: id });
+    result = {
+      status: 201,
+      series,
+    };
+  } catch (error) {
+    throw error;
+  }
+  return result;
+};
+
 const updateSerie = async (id) => {
   let result;
   const { title, description, url, category, chapter } = Serie;
@@ -80,4 +94,5 @@ module.exports = {
   getSerie,
   updateSerie,
   deleteSerie,
+  getSerieById,
 };
