@@ -23,30 +23,19 @@ const createChapter = async (title, description, url, serieId) => {
   };
 };
 
-// ! important sin solucion aun !!
-
-const getChapter = async (id) => {
+const getChapter = async (serieOwner) => {
   let result;
-  const { serieId, title } = chapter;
-  try {
-    const chapter = await chapter.findById(
-        { _id: id },
-        {
-          $set: {
-            serieId,
-            title,
-          },
-        }
-      ),
+  try{
+      const chapters = await Chapter.find(serieOwner);
       result = {
-        status: 201,
-        chapter,
-      };
-  } catch (error) {
+          status: 200,
+          chapters,
+      }
+  }catch(error){
     throw error;
   }
   return result;
-};
+}
 
 const updateChapter = async (id) => {
   let result;

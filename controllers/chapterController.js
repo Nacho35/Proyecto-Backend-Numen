@@ -1,7 +1,6 @@
 
 const Chapter = require("../models/chapters");
 const { chapterService } = require("../services");
-const series = require("../models/series")
 
 const createChapter = async (req, res) => {
   try {
@@ -13,17 +12,15 @@ const createChapter = async (req, res) => {
 }
 };
 
-/////Probando get chapter
 const getChapter = async (req, res) => {
-  try {
-    const result =
-    await series.findById(req.params.id);
-    res.status(201).send(result);
-  } catch (error) {
-    res.status(500).send("Se produjo un error al buscar los capitulos");
+  try{
+      const { serieOwner } = req.query;
+      const result = await chapterService.getChapter({ serieOwner });
+      res.status(result.status).send(result);
+  }catch(error){
+      res.status(500).send("Se produjo un error al listar los capítulos.");
   }
-};
-
+}
 
 const updateChapter = async (req, res) => {
   try {
