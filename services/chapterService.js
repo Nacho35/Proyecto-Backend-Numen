@@ -1,15 +1,14 @@
-const chapters = require("../models/chapters");
 const Chapter = require("../models/chapters");
-const Serie = require('../models/series')
+const Serie = require("../models/series");
 
 const createChapter = async (title, description, url, serieId) => {
   let newChapter;
   try {
     const serieFound = await Serie.findById(serieId);
-    if(!serieFound){
-      return { status: 404, message: "La serie no existe en la bd" }
+    if (!serieFound) {
+      return { status: 404, message: "La serie no existe en la bd" };
     }
-    newChapter = new Chapter({title, description, url, serieOwner: serieId});
+    newChapter = new Chapter({ title, description, url, serieOwner: serieId });
     await newChapter.save();
     serieFound.chapters.push(newChapter._id);
     await serieFound.save();
@@ -17,17 +16,32 @@ const createChapter = async (title, description, url, serieId) => {
     console.log(error);
     throw error;
   }
-  return { status: 200, message: "El capitulo fue creado exitosamente", newChapter };
-}
+  return {
+    status: 200,
+    message: "El capitulo fue creado exitosamente",
+    newChapter,
+  };
+};
+
+// ! important sin solucion aun !!
 
 const getChapter = async (id) => {
   let result;
+  const { serieId, title } = chapter;
   try {
-    const series = await Serie.findById({ _id: id }),
-    result = {
-      status: 201,
-      series,
-    };
+    const chapter = await chapter.findById(
+        { _id: id },
+        {
+          $set: {
+            serieId,
+            title,
+          },
+        }
+      ),
+      result = {
+        status: 201,
+        chapter,
+      };
   } catch (error) {
     throw error;
   }
