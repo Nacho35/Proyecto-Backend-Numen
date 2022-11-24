@@ -223,7 +223,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3002/api/chapter?userId=637e295951124cd8833b4897",
+					"raw": "localhost:3002/api/chapter?serieOwner=637e2a21ccc3e52f5355fdf6",
 					"host": [
 						"localhost"
 					],
@@ -234,8 +234,8 @@
 					],
 					"query": [
 						{
-							"key": "userId",
-							"value": "637e295951124cd8833b4897"
+							"key": "serieOwner",
+							"value": "637e2a21ccc3e52f5355fdf6"
 						}
 					]
 				}
